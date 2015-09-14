@@ -1,0 +1,37 @@
+<h1>Disc model</h1>
+
+<table class="show">
+  <tr>
+    <td class="show_header">Name</td>
+    <td><%= @model.name %></td>
+  </tr>
+  <tr>
+    <td class="show_header">Type</td>
+    <td><%= @model.disc_type.name %></td>
+  </tr>
+  <tr>
+    <td class="show_header">Make</td>
+    <td><%= image_tag @model.make.logo_url %><td>
+  </tr>
+  <tr>
+    <td class="show_header">Stability</td>
+    <td><%= @model.stability %></td>
+  </tr>
+  <tr>
+    <td class="show_header">Innova-style flight characteristics</td>
+    <td>
+      <table>
+        <tr>
+          <td>Speed: <%= @model.speed %></td>
+          <td>Glide: <%= @model.glide %></td>
+        </tr>
+        <tr>
+          <td>Turn: <%= @model.turn %></td>
+          <td>Fade: <%= @model.fade %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+</table>
+
+<p><%= link_to 'All disc models', models_path %> | <%=link_to 'Home', owns_path %></p>

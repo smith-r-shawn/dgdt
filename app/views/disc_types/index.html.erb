@@ -1,0 +1,18 @@
+<h1>Disc Types</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @disc_types.each do |d| %>
+    <tr>
+      <td><%= d.name %></td>
+      <td><%= link_to 'Show', disc_type_path(d) %> | <%= link_to 'Edit', edit_disc_type_path(d) %> | <%= link_to 'Delete', disc_type_path(d), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<p><%= link_to 'Add new disc type', new_disc_type_path %> | <%= link_to 'Home', owns_path %></p>

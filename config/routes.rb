@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
 
+  resources :disc_types
   resources :owns
-  resources :make
-  resources :model
+  resources :makes
+  resources :models
   resources :person
 
   root 'owns#index'

@@ -1,0 +1,17 @@
+<h1>Disc golfers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @people.each do |p| %>
+  <tr>
+    <td><%= p.name %></td>
+    <td><%= link_to 'Show', person_path(p) %> | <%= link_to 'Edit', edit_person_path(p) %> | <%= link_to 'Delete', person_path(p), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'New Person', new_person_path %> | <%= link_to 'Home', owns_path %></p>

@@ -1,0 +1,19 @@
+<h1>Disc makes</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @makes.each do |m| %>
+  <tr>
+    <td>
+      <%= image_tag m.logo_url %>
+    </td>
+    <td><td><%= link_to 'Show', make_path(m) %> | <%= link_to 'Edit', edit_make_path(m) %> | <%= link_to 'Delete', make_path(m), method: :delete, data: { confirm: 'Are you sure?' }  %></td></td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'New disc make', new_make_path %> | <%= link_to 'Home', owns_path %></p>

@@ -1,0 +1,41 @@
+<%= form_for @model do |f| %>
+  <p>
+    <%= f.collection_select :disc_type_id, DiscType.all, :id, :name, :prompt => "Select disc type" %>
+    <%= f.label :name %>
+    <%= f.text_field :name %> &nbsp;
+    <%= f.collection_select :make_id, Make.all, :id, :name, :prompt => "Select disc maker" %>
+  </p>
+  <%= field_set_tag 'Discraft-style flight characteristics' do %>
+    <%= f.label :stability %>
+    <%= f.number_field :stability, :within => -3..3, :step => 0.1, :size => 5, :maxlength => 5, :class => 'num' %>
+  <% end %>
+  <br />
+  <%= field_set_tag 'Innova-style flight characteristics' do %>
+    <table>
+      <tr>
+        <td>
+          <%= f.label :speed %>
+          <%= f.number_field :speed, :within => 1...15, :size => 5, :maxlength => 5, :class => 'num' %>
+        </td>
+        <td>
+          <%= f.label :glide %>
+          <%= f.number_field :glide, :within => 1...7, :size => 5, :maxlength => 5, :class => 'num' %>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <%= f.label :turn %>
+          <%= f.number_field :turn, :within => -5...1, :size => 5, :maxlength => 5, :class => 'num' %>
+        </td>
+        <td>
+          <%= f.label :fade %>
+          <%= f.number_field :fade, :within => 0...5, :size => 5, :maxlength => 5, :class => 'num' %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>

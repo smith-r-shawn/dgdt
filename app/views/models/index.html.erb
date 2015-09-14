@@ -1,0 +1,26 @@
+<h1>Disc models</h1>
+
+<table class="all">
+  <tr>
+    <th>Name</th>
+    <th>Make</th>
+    <th>Type</th>
+    <th>Flight characteristics</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @models.each do |m| %>
+  <tr>
+    <td><%= m.name %></td>
+    <td><%= m.make.name %></td>
+    <td><%= m.disc_type.name %></td>
+    <td>
+      St: <%= m.stability %><br />
+      Sp: <%= m.speed %>  G: <%= m.glide %> T: <%= m.turn %> F: <%= m.fade %>
+    </td>
+    <td><%= link_to 'Show', model_path(m) %> | <%= link_to 'Edit', edit_model_path(m) %> | <%= link_to 'Delete', model_path(m), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+  </tr>
+  <% end %>
+</table>
+
+<p><%= link_to 'New disc model', new_model_path %> | <%= link_to 'Home', owns_path %></p>

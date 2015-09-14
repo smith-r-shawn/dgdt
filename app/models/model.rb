@@ -1,4 +1,5 @@
 class Model < ActiveRecord::Base
   belongs_to :make
-  has_many :users, through: :owns
+  belongs_to :disc_type
+  has_many :people, through: :owns
 end

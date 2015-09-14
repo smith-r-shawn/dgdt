@@ -1,1 +1,29 @@
 <h1>Hello, disc golfers!</h1>
+<ul>
+  <li><%= link_to 'People', person_index_path %></li>
+  <li><%= link_to 'Owned Discs', owns_path %></li>
+  <li><%= link_to 'Model', models_path %></li>
+  <li><%= link_to 'Make', makes_path %></li>
+  <br />
+  <li><%= link_to 'Disc types', disc_types_path %></li>
+  <br />
+  <li><%= link_to 'Assign model to person', new_own_path %></li>
+</ul>
+<br />
+<table class="all">
+  <tr>
+    <th>Name</th>
+    <th>Model</th>
+    <th>Inv.</th>
+    <th>Actions</th>
+  </tr>
+
+  <% @owns.each do |o| %>
+  <tr>
+    <td><%= o.person.name %></td>
+    <td><%= o.model.name %></td>
+    <td><%= o.inventory %></td>
+    <td><%= link_to 'Edit', edit_own_path(o) %> | <%= link_to 'Delete', own_path(o), method: :delete, data: { confirm: 'Are you sure?' }  %></td>
+  </tr>
+  <% end %>
+</table>

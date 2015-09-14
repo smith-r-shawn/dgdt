@@ -11,10 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150909183418) do
+ActiveRecord::Schema.define(version: 20150914160827) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "disc_types", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "makes", force: :cascade do |t|
     t.string   "name",       null: false
@@ -24,15 +30,19 @@ ActiveRecord::Schema.define(version: 20150909183418) do
   end
 
   create_table "models", force: :cascade do |t|
-    t.string   "name",       null: false
+    t.string   "name",                                 null: false
     t.integer  "make_id"
-    t.integer  "owns_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.decimal  "stability",    precision: 3, scale: 1
+    t.integer  "speed"
+    t.integer  "glide"
+    t.integer  "fade"
+    t.integer  "turn"
+    t.integer  "disc_type_id"
   end
 
   add_index "models", ["make_id"], name: "index_models_on_make_id", using: :btree
-  add_index "models", ["owns_id"], name: "index_models_on_owns_id", using: :btree
 
   create_table "owns", force: :cascade do |t|
     t.integer  "person_id"
